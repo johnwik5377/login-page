@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(#d296ff, #6f00c4);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+    .new-container {
+      background: rgba(40, 8, 138, 0.29);
+      backdrop-filter: blur(5.3px);
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0px 0px 20px rgba(107, 0, 0, 0.2),inset 0px 0px 5px rgb(115, 0, 255);
+    }
+    .user-icon {
+      font-size: 100px;
+      margin-bottom: 20px;
+    }
+    .sign-out-btn {
+      background-color: #d279ff;
+      color: #ffffff;
+      text-shadow: 0px 0px 2px #0015ff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bolder;
+    }
+
+    .sign-out-btn:hover {
+      color: aliceblue;
+      background-color: rgba(121, 199, 255, 0.65);
+      box-shadow: inset 0px 0px 7px #ff3d00, 0px 0px 2px rgb(165, 39, 0);
+    }
+  </style>
+</head>
+<body>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="new-container col-3">
+
+    <div class="user-icon">
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
+    <br>
+    <form th:action="@{/logout}" method="post">
+      <button type="submit" class="btn sign-out-btn">Sign Out</button>
+    </form>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+</body>
+</html>
